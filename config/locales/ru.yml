@@ -1,0 +1,28 @@
+ru:
+  posts:
+    post:
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      confirm: 'Вы уверены?'
+    show:
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      confirm: 'Вы уверены?'
+    form:
+      submit:
+        'Сохранить'
+    new:
+      title: 'Новая статья'
+    edit:
+      title: 'Редоктирование статьи'
+    header:
+      title: 'Новости'
+      home: 'Главная'
+      posts: 'Статьи'
+      new_post: 'Новая статья'
+    
+  common:
+    errors: 'При заполнении формы возникли ошибки'
+    back: 'Назад'
+    
+    
