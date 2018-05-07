@@ -1,0 +1,18 @@
+development:
+  cloud_name: anwardo
+  api_key: '787483661411257'
+  api_secret: JlWiDDDbG2qrBT-O0VXVL0dP9hU
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: anwardo
+  api_key: '787483661411257'
+  api_secret: JlWiDDDbG2qrBT-O0VXVL0dP9hU
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: anwardo
+  api_key: '787483661411257'
+  api_secret: JlWiDDDbG2qrBT-O0VXVL0dP9hU
+  enhance_image_tag: true
+  static_image_support: false

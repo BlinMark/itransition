@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem 'ckeditor'
+gem 'paperclip'
+gem 'cloudinary'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
