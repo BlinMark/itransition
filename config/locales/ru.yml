@@ -1,28 +1,72 @@
 ru:
   posts:
     post:
-      edit: 'Редактировать'
-      delete: 'Удалить'
+      edit:    'Редактировать'
+      delete:  'Удалить'
       confirm: 'Вы уверены?'
     show:
-      edit: 'Редактировать'
-      delete: 'Удалить'
+      edit:    'Редактировать'
+      delete:  'Удалить'
       confirm: 'Вы уверены?'
     form:
-      submit:
-        'Сохранить'
+      submit: 'Сохранить'
+      category: 'Категория'
     new:
-      title: 'Новая статья'
+      title:  'Новая статья'
     edit:
-      title: 'Редоктирование статьи'
+      title:  'Редоктирование статьи'
     header:
-      title: 'Новости'
-      home: 'Главная'
-      posts: 'Статьи'
+      title:    'Новости'
+      home:     'Главная'
+      posts:    'Статьи'
       new_post: 'Новая статья'
-    
+
+  categories:
+    index:
+      title:  'Категории'
+      name:   'название'
+      edit:   'Редактировать'
+      delete: 'Удалить'
+      new_category:    'Новая категория'
+      parent_category: 'родительская категория'
+
+    new:
+      title:  'Новая категория'
+    edit:
+      title:  'Редоктирование категории'
+    form:
+      submit: 'Сохранить'
+
+
   common:
     errors: 'При заполнении формы возникли ошибки'
-    back: 'Назад'
+    back:   'Назад'
+
+  tags:
+    no_posts: 'Нет записей'
     
-    
+  layouts:
+    application:
+      title:    'Новости'
+      home:     'Главная'
+      posts:    'Статьи'
+      new_post: 'Новая статья'
+      login:    'Вход'
+      logout:   'Выход'
+      signup:   'Регистрация'
+
+  devise:
+    registrations:
+      new:
+        signup:   'Регистрация'
+        sign_up:  'Зарегистрироваться'
+        email:    'Электронная почта'
+        password: 'Пароль'
+        password_confirmation: 'Повторите пароль'
+        characters_minimum:    'символов минимум'
+
+  shared:
+    submenu:
+      title: 'Категории'
+    submenu_categories:
+      title: 'Тэги'

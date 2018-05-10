@@ -1,17 +1,26 @@
+<%= render 'shared/breadcrumb', category: @post.category %>
 <article class="post">
-	<section class="post-head">
-		<h1><%= @post.title %></h1>
-		<small>
-			<time><%= @post.created_at.to_date.strftime("%d %B, %Y") %></time>
-			|
-			<%= link_to t('.edit'), edit_post_path(@post) %>
-			|
-			<%= link_to t('.delete'), post_path(@post), method: :delete, data: {confirm: t('.confirm')} %>
-		</small>
-	</section>
+  <section class="post-head">
+    <h1><%= @post.title %></h1>
+    <small>
+      <time><%= @post.created_at.to_date.strftime("%d %B, %Y") %></time>
 
-	<section class="post-body">
-		<%= image_tag @post.image.url(:large), class: 'img-show' if @post.image? %>
-		<%= raw @post.description %>
-	</section>
+      <% if @post.category.present? %>
+
+        <%= link_to @post.category.name, @post.category %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        |
+        <%= link_to t('.edit'), edit_post_path(@post) %>
+        |
+        <%= link_to t('.delete'), post_path(@post), method: :delete, data: {confirm: t('.confirm')} %>
+      <% end %>
+    </small>
+  </section>
+
+  <section class="post-body">
+    <%= image_tag @post.image.url(:large), class: 'img-show' if @post.image? %>
+    <%= raw @post.description %>
+  </section>
 </article>
