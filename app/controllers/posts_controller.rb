@@ -22,7 +22,8 @@ class PostsController < ApplicationController
     if @post.update_attributes(post_params)
       redirect_to @post, success: 'Post successfully updated'
     else
-      render :edit, danger: 'Post not updated'
+      flash.now[:danger] = "Post not updated"
+      render :edit
     end
   end
 
@@ -36,14 +37,15 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, success: "Post successfully created"
     else
-      render :new, danger: "Post not created"
+      flash.now[:danger] = "Post not created"
+      render :new
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :short_description, :description, :image)
+    params.require(:post).permit(:title, :short_description, :description, :image, :all_tags)
   end
 
   def set_post
