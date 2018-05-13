@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :tags, only: [:show]
   resources :categories
+  resources :comments
   mount Ckeditor::Engine => '/ckeditor'
 
 end

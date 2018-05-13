@@ -20,7 +20,10 @@
   </section>
 
   <section class="post-body">
-    <%= image_tag @post.image.url(:large), class: 'img-show' if @post.image? %>
     <%= raw @post.description %>
   </section>
+  <% if user_signed_in? %>
+    <%= render partial: "comments/template", locals: {commentable: @post, new_comment: @comment} %>
+  <% else %>
+  <% end %>
 </article>

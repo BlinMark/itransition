@@ -47,7 +47,7 @@ ru:
     
   layouts:
     application:
-      title:    'Новости'
+      title:    'условно говоря онлайн-газета'
       home:     'Главная'
       posts:    'Статьи'
       new_post: 'Новая статья'
@@ -70,3 +70,11 @@ ru:
       title: 'Категории'
     submenu_categories:
       title: 'Тэги'
+
+  comments:
+    reply:
+      summit: 'Ответить'
+    form:
+      submit: 'Отправить комментарий'
+    template:
+      comments: 'Комментарии'

@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+	acts_as_commentable
+
 	mount_uploader :image, ImageUploader
 	
 	has_many :taggings, dependent: :destroy
