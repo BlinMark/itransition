@@ -1,63 +1,63 @@
-ru:
+by:
   will_paginate:
     previous_label: '&larr;'
     next_label: '&rarr;'
   posts:
     post:
-      edit:    'Редактировать'
-      delete:  'Удалить'
-      confirm: 'Вы уверены?'
+      edit:    'Рэдагаваць'
+      delete:  'Выдаліць'
+      confirm: 'Вы ўпэўнены?'
     show:
-      edit:    'Редактировать'
-      delete:  'Удалить'
-      confirm: 'Вы уверены?'
+      edit:    'Рэдагаваць'
+      delete:  'Выдаліць'
+      confirm: 'Вы ўпэўнены?'
     form:
-      submit: 'Сохранить'
-      category: 'Категория'
+      submit:   'Захаваць'
+      category: 'Катэгорыя'
     new:
-      title:  'Новая статья'
+      title:  'Новы артыкул'
     edit:
-      title:  'Редактирование статьи'
+      title:  'Рэдагаванне артыкула'
     header:
-      title:    'Новости'
-      home:     'Главная'
-      posts:    'Статьи'
-      new_post: 'Новая статья'
+      title:    'Навіны'
+      home:     'Галоўная'
+      posts:    'Артыкулы'
+      new_post: 'Новы артыкул'
 
   categories:
     index:
-      title:  'Категории'
-      name:   'название'
-      edit:   'Редактировать'
-      delete: 'Удалить'
-      new_category:    'Новая категория'
-      parent_category: 'родительская категория'
+      title:  'Катэгорыі'
+      name:   'Назва'
+      edit:   'Рэдагаваць'
+      delete: 'Выдаліць'
+      new_category:    'Новая катэгорыя'
+      parent_category: 'бацькоўская катэгорыя'
 
     new:
-      title:  'Новая категория'
+      title:  'Новая катэгорыя'
     edit:
-      title:  'Редактирование категории'
+      title:  'Рэдагаванне катэгорыі'
     form:
-      submit: 'Сохранить'
+      submit: 'Захаваць'
 
 
   common:
-    errors: 'При заполнении формы возникли ошибки'
+    errors: 'Пры запаўненні формы паўсталі памылкі'
     back:   'Назад'
 
   tags:
-    no_posts: 'Нет записей'
-    
+    no_posts: 'Няма запісаў'
+
   layouts:
     application:
       title:    'онлайн-газета'
-      home:     'Главная'
-      posts:    'Статьи'
-      new_post: 'Новая статья'
-      login:    'Вход'
-      logout:   'Выход'
-      signup:   'Регистрация'
-
+      home:     'Галоўная'
+      posts:    'Артыкулы'
+      new_post: 'Новы артыкул'
+      login:    'Уваход'
+      logout:   'Выхад'
+      signup:   'Рэгістрацыя'
+#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ПЕРЕВЕСТИ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   devise:
     registrations:
       new:

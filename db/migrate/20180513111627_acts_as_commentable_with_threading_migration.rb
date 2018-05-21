@@ -4,7 +4,7 @@ class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration[5.2]
       t.integer :commentable_id
       t.string :commentable_type
       t.string :title
-      t.text :body
+      t.text :body  #for websocket
       t.string :subject
       t.integer :user_id, :null => false
       t.integer :parent_id, :lft, :rgt

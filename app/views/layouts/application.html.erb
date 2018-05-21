@@ -4,7 +4,7 @@
   <title>Itra News</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -13,7 +13,7 @@
 
 <body>
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="<%= root_path %>"><%= t('.title') %></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,16 @@
       </ul>
 
       <ul class="navbar-nav pull-xs-right">
+        <li class="nav-item<%= "active" if I18n.locale == :ru %>">
+          <%= link_to "Rus", {locale: :ru}, class: "nav-link" %>
+        </li>
+        <li class="nav-item<%= "active" if I18n.locale == :by %>">
+          <%= link_to "Blr", {locale: :by}, class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link disabled"><%= current_user.first_name %></a>
+          </li>
           <li class="nav-item">
             <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
@@ -43,6 +52,7 @@
             <%= link_to t('.signup'), new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
+
       </ul>
 
       <%# <%= link_to t('.new_post'), new_post_path, class: 'btn btn-outline-primary pull-xs-tight' %>
@@ -70,7 +80,7 @@
     </div>
     <div class="col-md-3">
       <%= render 'shared/submenu' %>
-
+      <hr>
       <div class="tag_cloud">
         <% tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5}) do |tag, css_class| %>
           <%= link_to tag.name, tag_path(tag.name), class: css_class %>

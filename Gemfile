@@ -34,6 +34,7 @@ gem 'cloudinary'
 gem 'ancestry'
 gem 'devise'
 gem 'acts_as_commentable_with_threading'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
