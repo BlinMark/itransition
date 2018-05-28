@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   acts_as_commentable
   acts_as_votable
 
+
   mount_uploader :image, ImageUploader
 
   has_many :taggings, dependent: :destroy

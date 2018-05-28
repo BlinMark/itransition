@@ -42,6 +42,9 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'activerecord-session_store', '~> 1.0'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'cancancan', '~> 2.0'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 
 
 # Use Capistrano for deployment

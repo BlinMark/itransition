@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
         make_child_comment
         format.html  { redirect_back(fallback_location: :back, :notice => 'Comment was successfully added.') }
       else
-        format.html  { render :action => "new" }
+        format.html  { redirect_to post_path(@comment.commentable_id), :notice => 'Comment failed' }
       end
     end
   end

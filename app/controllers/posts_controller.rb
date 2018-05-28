@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource param_method: :my_sanitizer
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 5).all
+    @posts = Post.includes(:tags, :user, :category).paginate(page: params[:page], per_page: 5).all.order(:created_at).reverse_order
   end
 
   def show
