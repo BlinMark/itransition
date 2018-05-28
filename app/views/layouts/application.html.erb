@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Itra News</title>
+  <title>News</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet">
+  <link href="https://bootswatch.com/4/cosmo/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="https://b.radikal.ru/b19/1805/6f/91ca365947fd.png" type="image/png">
+
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -14,7 +16,6 @@
 <body>
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="<%= root_path %>"><%= t('.title') %></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,14 +33,18 @@
 
       <ul class="navbar-nav pull-xs-right">
         <li class="nav-item<%= "active" if I18n.locale == :ru %>">
-          <%= link_to "Rus", {locale: :ru}, class: "nav-link" %>
+          <%= link_to t('.rus'), {locale: :ru}, class: "nav-link" %>
         </li>
         <li class="nav-item<%= "active" if I18n.locale == :by %>">
-          <%= link_to "Blr", {locale: :by}, class: "nav-link" %>
+          <%= link_to t('.blr'), {locale: :by}, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link disabled"><%= current_user.first_name %></a>
+            <% if current_user.role == "admin" %>
+              <%= link_to t('.admin') + current_user.first_name, current_user, class: "nav-link" %>
+            <% else %>
+              <%= link_to current_user.first_name, current_user, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -54,8 +59,6 @@
         <% end %>
 
       </ul>
-
-      <%# <%= link_to t('.new_post'), new_post_path, class: 'btn btn-outline-primary pull-xs-tight' %>
 
     </div>
   </nav>
@@ -93,4 +96,12 @@
 
 
 </body>
+<script>
+    function check() {
+        if ($('#input').val() != '')
+            $('#button').removeAttr('disabled');
+        else
+            $('#button').attr('disabled', 'disable');
+    }
+</script>
 </html>

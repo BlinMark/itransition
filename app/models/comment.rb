@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  acts_as_nested_set :scope => [:commentable_id, :commentable_type]
+
 
 
 
@@ -14,6 +14,8 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+  acts_as_nested_set :scope => [:commentable_id, :commentable_type]
+  acts_as_votable
 
 
   after_create_commit { CommentBroadcastJob.perform_later self }

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   before_action :authenticate_user!
 
   def create
@@ -14,6 +15,22 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def show
+  end
+
+  def upvote
+    @comment = Comment.find(params[:id])
+    @comment.upvote_by current_user
+    redirect_back fallback_location: :back
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    @comment.downvote_by current_user
+    redirect_back fallback_location: :back
+  end
+
 
   private
 
@@ -43,5 +60,6 @@ class CommentsController < ApplicationController
     parent_comment = Comment.find comment_id
     @comment.move_to_child_of(parent_comment)
   end
+
 
 end

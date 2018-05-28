@@ -1,7 +1,124 @@
-<h1><%= full_name %></h1>
+<h1><%= full_name %></h1><span class="badge badge-pill badge-primary"><%= @user.role %></span>
 <p><%= @user.email %></p>
 
-
-<%= @user_posts.each do |post| %>
-  <%= link_to post.title, post_path(post) %>
+<% if can? :new, Post %>
+  <%= link_to t('.new_post'), new_post_path, class: 'btn btn-outline-primary pull-xs-tight' %>
+  <br><br><br>
 <% end %>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active show" data-toggle="tab" href="#home"><%= t('.posts') %></a>
+  </li>
+  <% if user_signed_in? %>
+    <% if current_user.role == "admin" %>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#profile"><%= t('.users') %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#categories"><%= t('.title') %></a>
+      </li>
+    <% end %>
+  <% end %>
+
+</ul>
+<div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade active show" id="home">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col"><%= t('.name') %></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <%= @user_posts.each_with_index do |post| %>
+        <tr>
+          <th scope="row"><%= link_to post.title, post_path(post) %></th>
+          <th scope="row">
+            <% if can? :update, post %>
+              <%= link_to t('.edit'), edit_post_path(post), class: 'btn btn-outline-primary btn-sm' %>
+            <% end %>
+            <% if can? :delete, post %>
+              <%= link_to t('.delete'), post_path(post), method: :delete, data: {confirm: t('.confirm')}, class: 'btn btn-outline-danger btn-sm' %>
+            <% end %>
+          </th>
+      <% end %>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <% if user_signed_in? %>
+    <% if current_user.role == "admin" %>
+      <div class="tab-pane fade" id="profile">
+
+        <% @users = User.all %>
+
+        <% if can? :show, @users %>
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="col"><%= t('.name') %></th>
+              <th scope="col"><%= t('.email') %></th>
+              <th scope="col"><%= t('.role') %></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <% @users.each do |user| %>
+              <tr>
+                <th scope="row"><%= link_to user.first_name + ' ' + user.last_name, user %></th>
+                <th scope="row"><%= user.email %></th>
+                <th scope="row"><%= user.role %></th>
+                <th scope="row"><%= link_to t('.edit'), edit_user_path(user), class: 'btn btn-outline-primary btn-sm' %></th>
+              </tr>
+            <% end %>
+
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="tab-pane fade" id="categories">
+    <h1><%= t('.title') %></h1>
+
+    <div class="buttons_panel">
+      <%= link_to t('.new_category'), new_category_path, class: 'btn btn-outline-primary btn-sm' %>
+    </div>
+
+    <% @categories = Category.all %>
+    <section id="categories">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('.name') %></th>
+          <th><%= t('.parent_category') %></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @categories.each_with_index do |category, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= category.name %></td>
+            <td><%= category.parent.name if category.parent.present? %></td>
+            <td>
+              <%= link_to t('.edit'), edit_category_path(category), class: 'btn btn-outline-primary btn-sm' %>
+              <%= link_to t('.delete'), category_path(category), method: :delete, data: {confirm: 'Are you shore'}, class: 'btn btn-outline-danger btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

@@ -57,46 +57,83 @@ by:
       login:    'Уваход'
       logout:   'Выхад'
       signup:   'Рэгістрацыя'
-#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ПЕРЕВЕСТИ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+      rus:      'Рус'
+      blr:      'Бел'
+      admin:    'Адміністратар '
+
   devise:
     registrations:
       new:
-        signup:                'Регистрация'
-        sign_up:               'Зарегистрироваться'
-        email:                 'Электронная почта'
+        signup:                'Рэгістрацыя'
+        sign_up:               'Зарэгістравацца'
+        email:                 'Электронная пошта'
         password:              'Пароль'
-        password_confirmation: 'Повторите пароль'
-        characters_minimum:    'символов минимум'
-        first_name:            'Имя'
-        last_name:             'Фамилия'
+        password_confirmation: 'Паўтарыце пароль'
+        characters_minimum:    'сімвалаў мінімум'
+        first_name:            'Імя'
+        last_name:             'Прозвішча'
       edit:
-        first_name:            'Имя'
-        last_name:             'Фамилия'
-        email:                 'Электронная почта'
-        password:              'Пароль (не менее 6 символов)'
-        password_confirmation: 'Повторите пароль'
-        current_password:      'Введите текущий пароль для подтвержения'
-        update:                'Обновить'
-        disable_account:       'Деактивация аккаунта'
-        delete:                'Удалить аккаунт'
+        first_name:            'Імя'
+        last_name:             'Прозвішча'
+        email:                 'Электронная пошта'
+        password:              'Пароль (не менш за 6 сымбаляў)'
+        password_confirmation: 'Паўтарыце пароль'
+        current_password:      'Калі ласка, увядзіце бягучы пароль для пацверджання'
+        update:                'Абнавіць'
+        disable_account:       'Дэактывацыя акаўнта'
+        delete:                'Выдаліць рахунак'
     shared:
       links:
-        log_in:          'Войти'
-        sing_up:         'Зарегистрироваться'
-        confirm:         'Отправить подтверждение ещё раз'
-        unlock:          'Не получили инструкции по разблокировке?'
-        forgot_password: 'Забыли пароль'
+        log_in:          'Увайсці'
+        sing_up:         'Зарэгістравацца'
+        confirm:         'Адправіць пацвярджэнне яшчэ раз'
+        unlock:          'Не атрымалі інструкцыі па разблакоўцы?'
+        forgot_password: 'Забыліся пароль'
+    sessions:
+      new:
+        log_in:        'Увайсці'
+        login:         'Уваход'
+        email:         'Электронная пошта'
+        password:      'Пароль'
+        remember_me:   'Запомніць мяне'
 
   shared:
     submenu:
-      title: 'Категории'
+      title: 'Катэгорыі'
     submenu_categories:
-      title: 'Тэги'
+      title: 'Тэгі'
 
   comments:
     reply:
-      summit: 'Ответить'
+      summit: 'Адказаць'
+      like:   ' Мне падабаецца'
     form:
-      submit: 'Отправить комментарий'
+      submit: 'Адправіць каментар'
     template:
-      comments: 'Комментарии'
+      comments: 'Каментары'
+
+  users:
+      show:
+        posts:  'Навіны'
+        users:  'Карыстальнікі'
+        name:   'Імя'
+        email:  'Электронная пошта'
+        role:   'Доступ'
+        title:  'Катэгорыі'
+        name:   'Назва'
+        edit:   'Рэдагаваць'
+        delete: 'Выдаліць'
+        new_category:    'Новая катэгорыя'
+        parent_category: 'бацькоўская катэгорыя'
+        new_post: 'Новы артыкул'
+      form:
+        submit:     'Захаваць'
+        email:      'Электронная пошта'
+        first_name: 'Імя'
+        last_name:  'Прозвішча'
+        role:       'Доступ'
+        admin:      'адміністратар'
+        writer:     'пісьменнік'
+        reader:     'чытач'
+        user:       'новы'
+#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ПЕРЕВЕСТИ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓

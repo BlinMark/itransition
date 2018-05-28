@@ -1,20 +1,26 @@
 <% comments.each do |comment| %>
   <div class="comments-show">
     <div class="comment">
-      <small><%= comment.created_at.strftime(" %d %B, %Y | %H:%M:%S") %></small>
+      <small><%= link_to comment.user.first_name, comment.user %>
+        <br><%= comment.created_at.strftime(" %d %B, %Y | %H:%M:%S") %></small>
       <p><%= comment.body %><br></p>
-      <div class="comment-nav"><a href="#" class="comment-reply"><%= t('.summit') %></a></div>
+      <div class="comment-nav"><a href="#" class="comment-reply"><%= t('.summit') %></a>
+        <%= link_to like_comment_path(comment), method: :put, id: 'like-count' do %>
+          <%= t('.like') %>
+          <%= comment.get_upvotes.size %>
+        <% end %></div>
       <div class="reply-form">
         <%= form_for @new_comment do |f| %>
           <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
           <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
           <%= f.hidden_field :comment_id, value: comment.id %>
           <div class="form-group">
-            <%= f.text_area :body, class: "form-control" %>
+            <%= f.text_area :body, class: "form-control", id: "input", onkeyup: "check()" %>
           </div>
           <div class="form-group">
-            <%= submit_tag t('.summit'), class: "btn btn-primary" %>
+            <%= submit_tag t('.summit'), class: "btn btn-primary", id: 'button' %>
           </div>
+
         <% end %>
       </div>
     </div>
@@ -22,3 +28,4 @@
     <%= render partial: "comments/reply", locals: {comments: comment.children} %>
   </div>
 <% end %>
+

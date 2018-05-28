@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  load_and_authorize_resource param_method: :my_sanitizer
 
   def index
     @posts = Post.paginate(page: params[:page], per_page: 5).all
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    authorize! :new, @post
     @post = current_user.posts.build
   end
 
@@ -24,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    authorize! :update, @post
     if @post.update_attributes(post_params)
       redirect_to @post, success: 'Post successfully updated'
     else
@@ -33,11 +36,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @post
     @post.destroy
     redirect_to posts_path, success: "Post successfully deleted"
   end
 
   def create
+    authorize! :create, @post
     @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post, success: "Post successfully created"
@@ -48,6 +53,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def my_sanitizer
+    params.require(:post).permit(:title)
+  end
 
   def post_params
     params.require(:post).permit(:title, :short_description, :description, :image, :all_tags, :category_id)

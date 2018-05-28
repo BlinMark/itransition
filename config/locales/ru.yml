@@ -57,6 +57,9 @@ ru:
       login:    'Вход'
       logout:   'Выход'
       signup:   'Регистрация'
+      rus:      'Рус'
+      blr:      'Бел'
+      admin:    'Администратор '
 
   devise:
     registrations:
@@ -75,7 +78,7 @@ ru:
         email:                 'Электронная почта'
         password:              'Пароль (не менее 6 символов)'
         password_confirmation: 'Повторите пароль'
-        current_password:      'Введите текущий пароль для подтвержения'
+        current_password:      'Введите текущий пароль для подтверждения'
         update:                'Обновить'
         disable_account:       'Деактивация аккаунта'
         delete:                'Удалить аккаунт'
@@ -86,6 +89,14 @@ ru:
         confirm:         'Отправить подтверждение ещё раз'
         unlock:          'Не получили инструкции по разблокировке?'
         forgot_password: 'Забыли пароль'
+        sign_in_with:    'Войти с помощью '
+    sessions:
+      new:
+        log_in:        'Вход'
+        login:         'Войти'
+        email:         'Электронная почта'
+        password:      'Пароль'
+        remember_me:   'Запомнить меня'
 
   shared:
     submenu:
@@ -96,7 +107,33 @@ ru:
   comments:
     reply:
       summit: 'Ответить'
+      like:   ' Мне нравится'
     form:
       submit: 'Отправить комментарий'
     template:
       comments: 'Комментарии'
+
+  users:
+    show:
+      posts:  'Новости'
+      users:  'Пользователи'
+      name:   'Имя'
+      email:  'Электронная почта'
+      role:   'Доступ'
+      title:  'Категории'
+      name:   'название'
+      edit:   'Редактировать'
+      delete: 'Удалить'
+      new_category:    'Новая категория'
+      parent_category: 'родительская категория'
+      new_post:        'Новая статья'
+    form:
+      submit:     'Обновить'
+      email:      'Электронная почта'
+      first_name: 'Имя'
+      last_name:  'Фамилия'
+      role:       'Доступ'
+      admin:      'администратор'
+      writer:     'писатель'
+      reader:     'читатель'
+      user:       'новый'

@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show]
 
+  before_action :authenticate_user!, except: [:show]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+
+  load_and_authorize_resource param_method: :my_sanitizer
 
   def index
     @categories = Category.all
@@ -33,6 +35,8 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    authorize! :update, @category
+
     if @category.update_attributes(category_params)
       redirect_to categories_path, success: 'Category successfully update'
     else
@@ -43,6 +47,8 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @category
+
     @category.destroy
     redirect_to categories_path, success: 'Category successfully delete'
   end

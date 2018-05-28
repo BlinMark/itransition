@@ -33,8 +33,16 @@ gem 'paperclip'
 gem 'cloudinary'
 gem 'ancestry'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
 gem 'acts_as_commentable_with_threading'
 gem 'will_paginate', '~> 3.1.0'
+gem 'activerecord-session_store', '~> 1.0'
+gem 'acts_as_votable', '~> 0.11.1'
+gem 'cancancan', '~> 2.0'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -57,6 +65,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "letter_opener", :group => :development
+  gem 'dotenv', '~> 2.2.1'
 end
 
 group :test do
