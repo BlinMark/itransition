@@ -26,9 +26,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="<%= root_path %>"><%= t('.home') %> <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= posts_path %>"><%= t('.posts') %></a>
-        </li>
+
       </ul>
 
       <ul class="navbar-nav pull-xs-right">
@@ -42,9 +40,13 @@
           <li class="nav-item">
             <% if current_user.role == "admin" %>
               <%= link_to t('.admin') + current_user.first_name, current_user, class: "nav-link" %>
+
             <% else %>
               <%= link_to current_user.first_name, current_user, class: "nav-link" %>
             <% end %>
+          </li>
+          <li class="nav-item">
+            <%= image_tag(current_user.avatar.url(:thumb), width: "40px", class: "avatar nav-link") %>
           </li>
           <li class="nav-item">
             <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "nav-link" %>

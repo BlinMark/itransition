@@ -1,10 +1,20 @@
-<h1><%= full_name %></h1><span class="badge badge-pill badge-primary"><%= @user.role %></span>
-<p><%= @user.email %></p>
+<div class="row">
+  <div class="col-md-5">
+    <%= image_tag(@user.avatar.url(:medium), width: "300px", class: "avatar-300 nav-link") %>
+  </div>
+  <div class="col-md-7">
+    <h1><%= full_name %></h1><span class="badge badge-pill badge-primary"><%= @user.role %></span>
+    <p><%= @user.email %></p>
 
-<% if can? :new, Post %>
-  <%= link_to t('.new_post'), new_post_path, class: 'btn btn-outline-primary pull-xs-tight' %>
-  <br><br><br>
-<% end %>
+    <% if can? :new, Post %>
+      <%= link_to t('.new_post'), new_post_path, class: 'btn btn-outline-primary pull-xs-tight' %>
+    <% end %>
+    <% if can? :update, @user %>
+      <%= link_to t('.edit_profile'), edit_user_path, class: 'btn btn-outline-primary pull-xs-tight' %>
+    <% end %>
+  </div>
+</div>
+
 
 <ul class="nav nav-tabs">
   <li class="nav-item">

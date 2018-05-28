@@ -1,22 +1,32 @@
 <%= form_for @user do |f| %>
   <% if user_signed_in? %>
-    <% if current_user.role == "admin" %>
+    <% if can? :update, @user %>
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <%= f.label t('.avatar'), class: "custom-file-label" %>
+          <div class="custom-file">
+            <%= f.file_field :avatar, class: "custom-file-input" %>
+          </div>
+        </div>
+      </div>
       <div class="form-group">
         <%= f.label t('.email') %>
         <%= f.email_field :email, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label t('.first_name') %>
-        <%= f.text_field :first_name , class: 'form-control' %>
+        <%= f.text_field :first_name, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label t('.last_name') %>
         <%= f.text_field :last_name, class: 'form-control' %>
       </div>
-      <div class="">
-        <%= f.label t('.role') %>
-        <%= f.select :role, ['admin', 'writer', 'reader', 'user'], class: "form-control" %>
-      </div>
+      <% if current_user.role == "admin" %>
+        <div class="">
+          <%= f.label t('.role') %>
+          <%= f.select :role, ['admin', 'writer', 'reader', 'user'], class: "form-control" %>
+        </div>
+      <% end %>
     <% else %>
     <% end %>
   <% end %>

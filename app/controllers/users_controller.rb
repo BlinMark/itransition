@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-
+  load_and_authorize_resource param_method: :my_sanitizer
 
   def show
     @user = User.find(params[:id])
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    authorize! :update, @post
+    authorize! :update, @user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to @user, success: 'User successfully updated'
@@ -27,9 +27,11 @@ class UsersController < ApplicationController
   end
 
   private
-
+  def my_sanitizer
+    params.require(:user).permit(:email)
+  end
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :role)
+    params.require(:user).permit(:first_name, :last_name, :email, :role, :avatar)
   end
 
   def set_user

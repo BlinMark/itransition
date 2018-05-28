@@ -127,6 +127,7 @@ ru:
       new_category:    'Новая категория'
       parent_category: 'родительская категория'
       new_post:        'Новая статья'
+      edit_profile:    'Редактировать профиль'
     form:
       submit:     'Обновить'
       email:      'Электронная почта'
@@ -137,3 +138,4 @@ ru:
       writer:     'писатель'
       reader:     'читатель'
       user:       'новый'
+      avatar:     'Аватар'
