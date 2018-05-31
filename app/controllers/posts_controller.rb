@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource param_method: :my_sanitizer
 
   def index
-    @posts = Post.includes(:tags, :user, :category).paginate(page: params[:page], per_page: 5).all.order(:created_at).reverse_order
+    @posts = Post.includes(:tags, :user, :category).paginate(page: params[:page], per_page: 3).all.order(:created_at).reverse_order
   end
 
   def show
@@ -42,8 +42,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    authorize! :create, @post
     @post = current_user.posts.build(post_params)
+    authorize! :create, @post
     if @post.save
       redirect_to @post, success: "Post successfully created"
     else

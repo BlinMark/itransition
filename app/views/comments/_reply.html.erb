@@ -4,7 +4,7 @@
       <small><%= link_to comment.user.first_name, comment.user %>
         <br><%= comment.created_at.strftime(" %d %B, %Y | %H:%M:%S") %></small>
       <p><%= comment.body %><br></p>
-      <div class="comment-nav"><a href="#" class="comment-reply"><%= t('.summit') %></a>
+      <div class="comment-nav"><a class="comment-reply"><%= t('.summit') %></a>
         <%= link_to like_comment_path(comment), method: :put, id: 'like-count' do %>
           <%= t('.like') %>
           <%= comment.get_upvotes.size %>
